@@ -616,7 +616,7 @@ window.Game = (function () {
               return Date.now() - state.startTime > 3 * 60 * 1000 ?
               Verdict.FAIL :
               Verdict.CONTINUE;
-            }
+          }
         ];
       }
 
