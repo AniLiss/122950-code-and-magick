@@ -589,14 +589,14 @@ window.Game = (function () {
            * @return {Verdict}
            */
           function (state) {
-              var me = state.objects.filter(function (object) {
-              return object.type === ObjectType.ME;
+            var me = state.objects.filter(function (object) {
+                return object.type === ObjectType.ME;
             })[0];
 
-              return me.state === ObjectState.DISPOSED ?
+            return me.state === ObjectState.DISPOSED ?
               Verdict.FAIL :
               Verdict.CONTINUE;
-            },
+          },
 
           /**
            * Если нажата клавиша Esc игра ставится на паузу.
