@@ -1,7 +1,7 @@
 # Учебный проект «Код и Магия» [![Build status][travis-image]][travis-url] [![Dependency status][dependency-image]][dependency-url]
 
 * Студент: [Elizabeth Anatskaya](https://up.htmlacademy.ru/javascript/8/user/122950).
-* Наставник: `Неизвестно`.
+* Наставник: [Михаил Баранов].
 
 ---
 
