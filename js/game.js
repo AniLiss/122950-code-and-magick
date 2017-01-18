@@ -590,7 +590,7 @@ window.Game = (function () {
            */
           function (state) {
             var me = state.objects.filter(function (object) {
-                return object.type === ObjectType.ME;
+              return object.type === ObjectType.ME;
             })[0];
 
             return me.state === ObjectState.DISPOSED ?

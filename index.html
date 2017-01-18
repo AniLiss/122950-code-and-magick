@@ -37,10 +37,6 @@
   var wizardSpeed = 3;
   var wizardWidth = 70;
 
-  function isNumeric(n) {
-    return !isNaN(parseFloat(n)) && isFinite(n);
-  }
-
   var getFireballSpeed = (left) => (left === true) ? 5 : 2;
 
   var getWizardHeight = () => 1.337 * wizardWidth;
@@ -50,7 +46,7 @@
   }
 
   function getWizardY(height) {
-    return ((isNumeric(height) - getWizardHeight(height)) * 3) / 2;
+    return (((height) - getWizardHeight(height)) * 3) / 2;
   }
 
 </script>
