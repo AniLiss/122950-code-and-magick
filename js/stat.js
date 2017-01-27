@@ -1,3 +1,5 @@
+'use strict';
+
 var columnHeight = 150;
 var columnWidth = 40;
 var stepX = 50;
@@ -9,8 +11,8 @@ window.renderStatistics = function (ctx, names, times) {
   var initialY = 40;
   var newX = initialX + 35;
 
-  var redColor =  'rgba(255, 0, 0, 1)';
-  var blueColor = 'rgba(0, 0, 255,' + Math.random()*0.7 + ')';
+  var redColor = 'rgba(255, 0, 0, 1)';
+  var blueColor = 'rgba(0, 0, 255,' + Math.random() * 0.7 + ')';
 
   // ctx.clearRect(0, 0, ctx.width, ctx.height);
 
@@ -33,20 +35,21 @@ window.renderStatistics = function (ctx, names, times) {
 
     if (names[i] === 'Вы') {
       ctx.fillStyle = redColor;
-    }    else ctx.fillStyle = blueColor;
+    } else {
+      ctx.fillStyle = blueColor;
+    }
 
     ctx.fillRect(newX, initialY + 210, columnWidth, -stepY*times[i]);
 
-    for (var j = 0; j<names.length; j ++) {
+    for (var j = 0; j < names.length; j++) {
       ctx.fillStyle = '#000';
       ctx.font = '16px PT Mono';
-      ctx.fillText(names[i], newX,  initialY+ 230);
+      ctx.fillText(names[i], newX, initialY + 230);
     }
 
     ctx.font = '16px PT Mono';
-    ctx.fillText(Math.floor(times[i]), newX, 240-stepY*times[i]);
+    ctx.fillText(Math.floor(times[i]), newX, 240 - stepY * times[i]);
 
     newX+= stepX + columnWidth;
-
   }
 };
