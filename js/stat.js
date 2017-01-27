@@ -39,7 +39,7 @@ window.renderStatistics = function (ctx, names, times) {
       ctx.fillStyle = blueColor;
     }
 
-    ctx.fillRect(newX, initialY + 210, columnWidth, -stepY*times[i]);
+    ctx.fillRect(newX, initialY + 210, columnWidth, -stepY * times[i]);
 
     for (var j = 0; j < names.length; j++) {
       ctx.fillStyle = '#000';
@@ -50,6 +50,6 @@ window.renderStatistics = function (ctx, names, times) {
     ctx.font = '16px PT Mono';
     ctx.fillText(Math.floor(times[i]), newX, 240 - stepY * times[i]);
 
-    newX+= stepX + columnWidth;
+    newX += stepX + columnWidth;
   }
 };
