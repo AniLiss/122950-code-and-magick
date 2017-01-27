@@ -10,9 +10,9 @@ var resultLinePadding = 20;
 function drawRectangle(ctx, coords, color) {
   ctx.fillStyle = color;
   for (var i = 0; i < coords.length; i++) {
-    ctx.fillRect(coords[i], coords[i+1], coords[i+2], coords[i+3]);
+    ctx.fillRect(coords[i], coords[i + 1], coords[i + 2], coords[i + 3]);
   }
-};
+}
 
 function getRandomBlueColor() {
   return 'rgba(0, 0, 255,' + Math.random() * 0.7 + ')';
