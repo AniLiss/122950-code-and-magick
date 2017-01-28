@@ -1,28 +1,29 @@
 'use strict';
 
-var columnHeight = 150;
-var columnWidth = 40;
-var stepX = 50;
-var stepY = 0;
-var maxTime = -1;
-var resultLinePadding = 20;
-
-function drawRectangle(ctx, coords, color) {
+function drawRectangle(ctx, cords, color) {
   ctx.fillStyle = color;
-  for (var i = 0; i < coords.length; i++) {
-    ctx.fillRect(coords[i], coords[i + 1], coords[i + 2], coords[i + 3]);
-  }
+  // ctx.fillRect(...cords);
+  ctx.fillRect.apply(ctx, cords);
+  // ctx.fillRect(cords[0], cords[1], cords[2], cords[3]);
 }
 
 function getRandomBlueColor() {
   return 'rgba(0, 0, 255,' + Math.random() * 0.7 + ')';
 }
 
-window.renderStatistics = function (ctx, names, times) {
+window.renderStatistics = (ctx, names, times) => {
+  var columnHeight = 150;
+  var columnWidth = 40;
+  var stepX = 50;
+  var stepY = 0;
+  var resultLinePadding = 20;
+
   var initialX = 120;
+
   var initialY = 40;
   var newX = initialX + 35;
   var redColor = 'rgba(255, 0, 0, 1)';
+  var barColor;
 
   drawRectangle(ctx, [110, 20, 420, 270], 'rgba(0, 0, 0, 0.7)');
   drawRectangle(ctx, [100, 10, 420, 270], '#fff');
@@ -32,29 +33,21 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.fillText('Ура вы победили!', initialX, initialY);
   ctx.fillText('Список результатов:', initialX, initialY + resultLinePadding);
 
+  var maxTime = Math.max.apply(null, times);
+  stepY = columnHeight / maxTime;
+
   for (var i = 0; i < times.length; i++) {
-    if (times[i] > maxTime) {
-      maxTime = times[i];
-      stepY = columnHeight / maxTime;
-    }
 
-    if (names[i] === 'Вы') {
-      ctx.fillStyle = redColor;
-    } else {
-      ctx.fillStyle = getRandomBlueColor();
-    }
+    (names[i] === 'Вы') ? barColor = redColor : barColor = getRandomBlueColor();
+    drawRectangle(ctx, [newX, initialY + 210, columnWidth, -stepY * times[i]], barColor);
 
-    ctx.fillRect(newX, initialY + 210, columnWidth, -stepY * times[i]);
-
-    for (var j = 0; j < names.length; j++) {
-      ctx.fillStyle = '#000';
-      ctx.fillText(names[i], newX, initialY + 230);
-    }
+    ctx.fillStyle = '#000';
+    ctx.fillText(names[i], newX, initialY + 230);
 
     ctx.fillText(Math.floor(times[i]), newX, 240 - stepY * times[i]);
-
     newX += stepX + columnWidth;
   }
 };
+
 
 
