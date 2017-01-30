@@ -1,3 +1,5 @@
+'use strict';
+
 var setupOpenButton = document.querySelector('.setup-open');
 var setupCloseButton = document.querySelector('.setup-close');
 var setup = document.querySelector('.setup');
@@ -7,7 +9,6 @@ var userName = document.querySelector('.setup-user-name');
 var wizardCoat = document.querySelector('#wizard-coat');
 var wizardEyes = document.querySelector('#wizard-eyes');
 var fireball = document.querySelector('.setup-fireball-wrap');
-console.log(fireball);
 
 var changeColor = function () {
   var wizardCoatColors = [
@@ -41,23 +42,23 @@ var changeColor = function () {
   } else if (this === fireball) {
     fireball.style.background = fireballColors[(Math.random() * (fireballColors.length - 1)).toFixed()];
   }
+  ;
 }
 
 wizardCoat.addEventListener('click', changeColor);
 wizardEyes.addEventListener('click', changeColor);
 fireball.addEventListener('click', changeColor);
 
-
 setupOpenButton.onclick = function () {
   setup.classList.remove('invisible');
-}
+};
 
 setupCloseButton.onclick = function () {
   setup.classList.add('invisible');
-}
+};
 
 function requireInputField(input) {
-  (input.required === false) ? input.required = true : input.required = false;
+  input.required = true;
   input.maxLength = 50;
 }
 
