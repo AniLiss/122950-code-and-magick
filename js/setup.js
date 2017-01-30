@@ -11,28 +11,11 @@ var wizardEyes = document.querySelector('#wizard-eyes');
 var fireball = document.querySelector('.setup-fireball-wrap');
 
 var changeColor = function () {
-  var wizardCoatColors = [
-    'rgb(101, 137, 164)',
-    'rgb(241, 43, 107)',
-    'rgb(146, 100, 161)',
-    'rgb(56, 159, 117)',
-    'rgb(215, 210, 55)',
-    'rgb(0, 0, 0)'];
+  var wizardCoatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 
-  var wizardEyesColors = [
-    'black',
-    'red',
-    'blue',
-    'yellow',
-    'green'
-  ];
+  var wizardEyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
 
-  var fireballColors = [
-    '#ee4830',
-    '#30a8ee',
-    '#5ce6c0',
-    '#e848d5',
-    '#e6e848'];
+  var fireballColors = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
   if (this === wizardCoat) {
     var color = wizardCoatColors[(Math.random() * (wizardCoatColors.length - 1)).toFixed()];
@@ -42,8 +25,7 @@ var changeColor = function () {
   } else if (this === fireball) {
     fireball.style.background = fireballColors[(Math.random() * (fireballColors.length - 1)).toFixed()];
   }
-  ;
-}
+};
 
 wizardCoat.addEventListener('click', changeColor);
 wizardEyes.addEventListener('click', changeColor);
