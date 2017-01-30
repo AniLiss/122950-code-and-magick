@@ -43,6 +43,5 @@ function requireInputField(input) {
   input.required = true;
   input.maxLength = 50;
 }
-
 requireInputField(userName);
 
