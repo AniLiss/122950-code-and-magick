@@ -10,19 +10,19 @@ var wizardCoat = document.querySelector('#wizard-coat');
 var wizardEyes = document.querySelector('#wizard-eyes');
 var fireball = document.querySelector('.setup-fireball-wrap');
 
-var changeColor = function () {
+var changeColor = function (e) {
   var wizardCoatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
 
   var wizardEyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
 
   var fireballColors = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
-  if (this === wizardCoat) {
+  if (e.currentTarget === wizardCoat) {
     var color = wizardCoatColors[(Math.random() * (wizardCoatColors.length - 1)).toFixed()];
     wizardCoat.style.fill = color;
-  } else if (this === wizardEyes) {
+  } else if (e.currentTarget === wizardEyes) {
     wizardEyes.style.fill = wizardEyesColors[(Math.random() * (wizardEyesColors.length - 1)).toFixed()];
-  } else if (this === fireball) {
+  } else if (e.currentTarget === fireball) {
     fireball.style.background = fireballColors[(Math.random() * (fireballColors.length - 1)).toFixed()];
   }
 };
@@ -43,5 +43,5 @@ function requireInputField(input) {
   input.required = true;
   input.maxLength = 50;
 }
-requireInputField(userName);
 
+requireInputField(userName);
