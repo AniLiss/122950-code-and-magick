@@ -38,7 +38,12 @@ window.renderStatistics = function (ctx, names, times) {
 
   for (var i = 0; i < times.length; i++) {
 
-    (names[i] === 'Вы') ? barColor = redColor : barColor = getRandomBlueColor();
+    if (names[i] === 'Вы') {
+      barColor = redColor;
+    } else {
+      barColor = getRandomBlueColor();
+    }
+    // (names[i] === 'Вы') ? barColor = redColor : barColor = getRandomBlueColor();
     drawRectangle(ctx, [newX, initialY + 210, columnWidth, -stepY * times[i]], barColor);
 
     ctx.fillStyle = '#000';
@@ -48,6 +53,3 @@ window.renderStatistics = function (ctx, names, times) {
     newX += stepX + columnWidth;
   }
 };
-
-
-
