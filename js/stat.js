@@ -11,7 +11,7 @@ function getRandomBlueColor() {
   return 'rgba(0, 0, 255,' + Math.random() * 0.7 + ')';
 }
 
-window.renderStatistics = (ctx, names, times) => {
+window.renderStatistics = function (ctx, names, times) {
   var columnHeight = 150;
   var columnWidth = 40;
   var stepX = 50;
