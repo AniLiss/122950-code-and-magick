@@ -1,35 +1,52 @@
 'use strict';
 
 var setupOpenButton = document.querySelector('.setup-open');
-var setupCloseButton = document.querySelector('.setup-close');
 var setup = document.querySelector('.setup');
+var setupCloseButton = setup.querySelector('.setup-close');
+var userName = setup.querySelector('.setup-user-name');
+var wizardCoat = setup.querySelector('#wizard-coat');
+var wizardEyes = setup.querySelector('#wizard-eyes');
+var fireball = setup.querySelector('.setup-fireball-wrap');
 
-var userName = document.querySelector('.setup-user-name');
+var changeWizardAppearance = function (e) {
+  var wizardCoatColors =
+    ['rgb(101, 137, 164)',
+      'rgb(241, 43, 107)',
+      'rgb(146, 100, 161)',
+      'rgb(56, 159, 117)',
+      'rgb(215, 210, 55)',
+      'rgb(0, 0, 0)'];
 
-var wizardCoat = document.querySelector('#wizard-coat');
-var wizardEyes = document.querySelector('#wizard-eyes');
-var fireball = document.querySelector('.setup-fireball-wrap');
+  var wizardEyesColors =
+    ['black',
+      'red',
+      'blue',
+      'yellow',
+      'green'];
 
-var changeColor = function (e) {
-  var wizardCoatColors = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161)', 'rgb(56, 159, 117)', 'rgb(215, 210, 55)', 'rgb(0, 0, 0)'];
-
-  var wizardEyesColors = ['black', 'red', 'blue', 'yellow', 'green'];
-
-  var fireballColors = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
+  var fireballColors =
+    ['#ee4830',
+      '#30a8ee',
+      '#5ce6c0',
+      '#e848d5',
+      '#e6e848'];
 
   if (e.currentTarget === wizardCoat) {
-    var color = wizardCoatColors[(Math.random() * (wizardCoatColors.length - 1)).toFixed()];
-    wizardCoat.style.fill = color;
+    wizardCoat.style.fill = wizardCoatColors[indexOf(wizardCoatColors)];
   } else if (e.currentTarget === wizardEyes) {
-    wizardEyes.style.fill = wizardEyesColors[(Math.random() * (wizardEyesColors.length - 1)).toFixed()];
+    wizardEyes.style.fill = wizardEyesColors[indexOf(wizardEyesColors)];
   } else if (e.currentTarget === fireball) {
-    fireball.style.background = fireballColors[(Math.random() * (fireballColors.length - 1)).toFixed()];
+    fireball.style.background = fireballColors[indexOf(fireballColors)];
   }
 };
 
-wizardCoat.addEventListener('click', changeColor);
-wizardEyes.addEventListener('click', changeColor);
-fireball.addEventListener('click', changeColor);
+function indexOf(wizardUnit) {
+  return ~~(Math.random() * (wizardUnit.length - 1));
+}
+
+wizardCoat.addEventListener('click', changeWizardAppearance);
+wizardEyes.addEventListener('click', changeWizardAppearance);
+fireball.addEventListener('click', changeWizardAppearance);
 
 setupOpenButton.onclick = function () {
   setup.classList.remove('invisible');
